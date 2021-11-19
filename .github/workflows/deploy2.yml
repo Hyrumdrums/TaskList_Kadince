@@ -10,7 +10,7 @@ jobs:
       - name: LAMP Deploy
         uses: appleboy/ssh-action@v.1.2
         with:
-          host: ${{secrects.SSH_HOST}} # server ip
+          host: ${{secrets.SSH_HOST}} # server ip
           key: ${{secrets.SSH_KEY}} 
           username: ${{secrets.SS_USERNAME}} #server user
           
