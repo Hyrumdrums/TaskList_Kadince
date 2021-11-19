@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: LAMP Deploy
-        uses: appleboy/ssh-action@v.1.2
+        uses: appleboy/ssh-action@v0.1.2
         with:
           host: ${{secrets.SSH_HOST}} # server ip
           key: ${{secrets.SSH_KEY}} 
