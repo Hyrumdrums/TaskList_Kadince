@@ -15,7 +15,6 @@ jobs:
           username: ${{secrets.SSH_USERNAME}} #server user
           
           script: |
-            mkdir test
             cd test
             git clone https://github.com/Hyrumdrums/TaskList_Kadince.git
             echo 'Deployment successful to digital ocean'
