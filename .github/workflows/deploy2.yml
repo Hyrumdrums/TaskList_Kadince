@@ -12,7 +12,7 @@ jobs:
         with:
           host: ${{secrets.SSH_HOST}} # server ip
           key: ${{secrets.SSH_KEY}} 
-          username: ${{secrets.SS_USERNAME}} #server user
+          username: ${{secrets.SSH_USERNAME}} #server user
           
           script: |
             mkdir test
