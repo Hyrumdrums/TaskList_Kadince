@@ -214,8 +214,8 @@ SQL;
 		//
 		$this->BeVerbose($sql, $function, $parameterList);
 		$stmt = $this->conn->prepare($sql);
-		var_dump($this->conn); die();
-		echo $sql;
+		// var_dump($this->conn); die();
+		// echo $sql;
 		$this->HandleSTMTErrors($stmt, $function);
 		//var_dump($this->conn);die();
 		foreach($parameterList as $param)
