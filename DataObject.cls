@@ -234,7 +234,7 @@ SQL;
 		}
 		// var_dump($stmt);echo '<br><br>';
 		// var_dump($this->conn); die();
-		$this->HandleSTMTErrors($this->conn, $function);
+		$this->HandleSTMTErrors($stmt, $function);
 		$this->BeVerbose($sql,$function, $parameterList);
 		$stmt->execute();
 		return $stmt;
