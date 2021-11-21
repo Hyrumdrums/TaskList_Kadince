@@ -1,6 +1,6 @@
 <?php
 require('DataObject.cls');
-$task = new DataObject('Task', 'Task_Id');
+$task = new DataObject('User', 'User_Id');
 $list = $task->Select();
 var_dump($list);
 
