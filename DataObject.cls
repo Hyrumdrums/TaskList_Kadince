@@ -562,7 +562,8 @@ SQL;
 	{
 		$sql = 'SELECT LAST_INSERT_ID() as Id;';
 		$stmt = $this->ExecuteSQL($sql, __FUNCTION__, array());
-		if($row = $result->fetch_row())
+		$result = $stmt->get_result();
+		if($row = $result->fetch_assoc())
 		{
 			return $row['Id'];
 		}
