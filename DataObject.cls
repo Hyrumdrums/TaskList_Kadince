@@ -215,7 +215,6 @@ SQL;
 		//
 		// return stmt - mysql mod less adept
 		//
-		$this->BeVerbose($sql, $function, $parameterList);
 		$stmt = $this->conn->prepare($sql);
 		// var_dump($this->conn); die();
 		// echo $sql;
