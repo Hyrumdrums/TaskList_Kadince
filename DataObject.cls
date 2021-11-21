@@ -217,8 +217,8 @@ SQL;
 		$this->BeVerbose($sql, $function, $parameterList);
 		$stmt = $this->conn->prepare($sql);
 		// var_dump($this->conn); die();
-		echo $sql;
-		var_dump($parameterList);
+		// echo $sql;
+		// var_dump($parameterList);
 		$this->HandleSTMTErrors($stmt, $function);
 		//var_dump($this->conn);die();
 		$indicatorString = '';
@@ -239,7 +239,7 @@ SQL;
 			$indicatorString .= $indicator;
 			// $stmt->bind_param($indicator, $param);
 		}
-		echo $indicatorString . '--';
+		// echo $indicatorString . '--';
 		if(count($parameterList)) $stmt->bind_param($indicatorString, ...$parameterList);
 		// var_dump($stmt);echo '<br><br>';
 		// var_dump($this->conn); die();
@@ -292,30 +292,6 @@ SQL;
 								. $this->tableName . '>' 
 								. $functionName . '(): No record loaded');
 	}
-	// public function GetFields()
-	// {
-		// //
-		// // Return fields Object
-		// //	Property names match each field
-		// //  Example: 
-		// //		$list = $vendorContact->Select();
-		// //		$vendorContactMetaData = $vendorContact->GetFields();
-		// //		$vendorContactMetaData->FieldName->DataType
-		// //
-		// $this->HandleSQLErrors($this->stmt, __FUNCTION__);	//Verify statment was executed
-		// $fields = new \stdclass();
-		// foreach( sqlsrv_field_metadata( $this->stmt ) as $fieldMetadata ) 
-        // {
-			// $column = new \stdclass();
-			// foreach($fieldMetadata as $key => $value)
-			// {
-				// $column->$key = $value;
-			// }
-			// $fieldName = $column->Name;
-			// $fields->$fieldName = $column;
-		// }
-		// return $fields;
-	// } 
 	public function Limit($int)
 	{
 		if(!is_int($int)) die('Invalid limit specified');
