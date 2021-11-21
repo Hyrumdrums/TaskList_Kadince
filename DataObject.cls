@@ -239,12 +239,14 @@ SQL;
 		$this->HandleSTMTErrors($stmt, $function);
 		$this->BeVerbose($sql,$function, $parameterList);
 		$stmt->execute();
+		
 		return $stmt;
 	}
 	protected function GetObjectList($stmt)
 	{
 		$list = array();
-		while($row = $stmt->fetch_row())
+		$result = $stmt->get_result();
+		while($row = $result->fetch_row())
 		{
 			$object = $this->InstantiateNewSelf();
 			$object->LoadRecord($row, $this->primaryColumn, $stmt);
