@@ -232,7 +232,7 @@ SQL;
 			}
 			$stmt->bind_param($indicator, $param);
 		}
-		$this->HandleSQLErrors($stmt, $function);
+		$this->HandleSQLErrors($this->conn, $function);
 		$this->BeVerbose($sql,$function, $parameterList);
 		$stmt->execute();
 		$this->HandleSQLErrors($stmt, $function);
@@ -608,6 +608,7 @@ SQL;
 		//
 		if ($sqlResult === false) 
 		{
+			echo mysqli
 			var_dump(mysqli_error($sqlResult));
 			throw new \ErrorException("$method MYSQL Error:");
 		}
