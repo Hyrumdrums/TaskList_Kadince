@@ -524,10 +524,10 @@ SQL;
 			$placeholderList[] = '?';
 		}
 		$placeholderString = implode(',', $placeholderList);
-		$columnNameString = implode('],[', $columnNameList);
+		$columnNameString = implode('`,`', $columnNameList);
 		$sql = <<<SQL
 			INSERT INTO {$this->tableName}
-			([$columnNameString])
+			(`$columnNameString`)
 			VALUES
 			($placeholderString)
 SQL;
