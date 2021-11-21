@@ -12,7 +12,7 @@
 		}
 		private static function GetCredentialFile()
 		{
-			$fileName = "creds.json";
+			$fileName = "../creds.json";
 			return $fileName;
 		}
 		private static function OpenConnection()
@@ -21,13 +21,15 @@
 			// Open connection to database
 			//
 			$fileName = self::GetCredentialFile();
+			//die($fileName);
 			$json = file_get_contents($fileName);
+			//die($json);
 			$credList = json_decode($json);
-			var_dump($credList);die();
-			$hostname = $credList['host'];
-			$username = $credList['user'];
-			$password = $credList['password'];
-			$database = $credList['db'];
+			//var_dump($credList);die();
+			$hostname = $credList->host;
+			$username = $credList->user;
+			$password = $credList->password;
+			$database = $credList->db;
 			$conn = new mysqli($hostname, $username, $password, $database);
 			if ($conn->connect_error) 
 			{

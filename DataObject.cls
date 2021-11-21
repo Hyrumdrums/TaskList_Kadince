@@ -23,7 +23,7 @@ class DataObject
 	public function __construct($tableName, $primaryColumn)
 	{
 		$this->dbName = 'Task';
-		$this->conn = \DataObjects\DATABASE::Connect();
+		$this->conn = DATABASE::Connect();
 		$this->tableName = $tableName;
 		$this->primaryColumn = $primaryColumn;
 		//
@@ -213,14 +213,15 @@ SQL;
 		// return stmt - mysql mod less adept
 		//
 		$this->BeVerbose($sql, $function, $parameterList);
-		$p1 = $parameterList[0];
+		$stmt = $this->conn;
 		$stmt = $this->conn->prepare($sql);
+		//var_dump($this->conn);die();
 		foreach($parameterList as $param)
 		{
 			//
 			// Second option -> $stmt->bind_param('ss', ...['DEU', 'POL']);
 			//
-			$type = gettype($param)
+			$type = gettype($param);
 			$indicator = '';
 			switch($type)
 			{
@@ -229,7 +230,9 @@ SQL;
 				case 'string': $indicator = 's'; break;
 				default: die('Cannot handle type: ' . $type); break;
 			}
+			$stmt->bind_param($indicator, $param);
 		}
+		$this->HandleSQLErrors($stmt, $function);
 		$this->BeVerbose($sql,$function, $parameterList);
 		$stmt->execute();
 		$this->HandleSQLErrors($stmt, $function);
@@ -605,7 +608,7 @@ SQL;
 		//
 		if ($sqlResult === false) 
 		{
-			var_dump(mysqli_error($conn));
+			var_dump(mysqli_error($sqlResult));
 			throw new \ErrorException("$method MYSQL Error:");
 		}
 	}
