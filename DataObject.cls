@@ -246,7 +246,7 @@ SQL;
 	{
 		$list = array();
 		$result = $stmt->get_result();
-		while($row = $result->fetch_row())
+		while($row = $result->fetch_assoc())
 		{
 			$object = $this->InstantiateNewSelf();
 			$object->LoadRecord($row, $this->primaryColumn, $stmt);
