@@ -608,7 +608,7 @@ SQL;
 		//
 		if ($stmt === false) 
 		{
-			echo mysqli_stmt_error($stmt));
+			echo mysqli_stmt_error($stmt);
 			throw new \ErrorException("$method MYSQL Error:");
 		}
 	}
