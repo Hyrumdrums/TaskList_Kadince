@@ -232,6 +232,8 @@ SQL;
 			}
 			$stmt->bind_param($indicator, $param);
 		}
+		var_dump($stmt);echo '<br><br>';
+		var_dump($this->conn); die();
 		$this->HandleSQLErrors($this->conn, $function);
 		$this->BeVerbose($sql,$function, $parameterList);
 		$stmt->execute();
