@@ -591,6 +591,8 @@ SQL;
 		$this->Clear();
 		$this->stmt = $stmt;
 		$this->primaryColumn = $primaryColumn;
+		var_dump($list);
+		die();
 		$this->columnList = $list;
 		$this->isNewItem = false;
 	}
