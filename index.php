@@ -1,9 +1,14 @@
 <?php
 require('DataObject.cls');
-$task = new DataObject('User', 'User_Id');
-$list = $task->Select();
-var_dump($list);
-
+$user = new DataObject('User', 'User_Id');
+$list = $user->Select();
+echo 'Loaded ' . $user->Get('Name') . ', his pwd is ' . $user->Get('Password');
+echo '<br>';
+echo '<br>';
+$user = new DataObject('User', 'User_Id');
+$user->Set('Name', 'Carol');
+$user->Set('Password', 'newPassword');
+$user->Save();
 
 
 
