@@ -601,15 +601,14 @@ SQL;
 		}
 		
 	}
-	private function HandleSQLErrors($sqlResult, $method)
+	private function HandleSQLErrors($stmt, $method)
 	{
 		//
 		//If executed sql statement had errors, output and kill code execution
 		//
-		if ($sqlResult === false) 
+		if ($stmt === false) 
 		{
-			echo mysqli
-			var_dump(mysqli_error($sqlResult));
+			echo mysqli_stmt_error($stmt));
 			throw new \ErrorException("$method MYSQL Error:");
 		}
 	}
