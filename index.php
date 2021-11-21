@@ -12,15 +12,15 @@ require('DataObject.cls');
 // $user->MakeVerbose();
 // $user->Save();
 //load
+$user = new DataObject('User', 'User_Id');
+$user->Set('User_Id', 1);
+$list = $user->Select();
+echo DataObject::ListToJSON($list);
+//delete
 // $user = new DataObject('User', 'User_Id');
 // $user->Set('User_Id', 7);
 // $user->Load();
-// $user->MakeVerbose();
-// $user->Dump();
-$user = new DataObject('User', 'User_Id');
-$user->Set('User_Id', 7);
-$user->Load();
-$user->Delete();
+// $user->Delete();
 
 
 
