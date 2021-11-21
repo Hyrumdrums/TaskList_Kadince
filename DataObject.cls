@@ -201,10 +201,11 @@ HTML;
 		$limit = $this->BuildLimit();
 		$orderBy = $this->BuildOrderBy();
 		$sql = <<<SQL
-SELECT {$limit} *
+SELECT *
 FROM `{$this->tableName}`
 $conditionColumnString
 $orderBy
+$limit
 SQL;
 		$this->stmt = $this->ExecuteSQL($sql, __FUNCTION__, $parameterList);
 		return $this->GetObjectList($this->stmt);
@@ -549,7 +550,7 @@ SQL;
 	{
 		if($this->selectLimit)
 		{
-			return 'TOP ' . $this->selectLimit;
+			return 'LIMIT 0, ' . $this->selectLimit;
 		}
 		return '';
 	}
