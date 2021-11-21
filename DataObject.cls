@@ -221,6 +221,7 @@ SQL;
 		var_dump($parameterList);
 		$this->HandleSTMTErrors($stmt, $function);
 		//var_dump($this->conn);die();
+		$indicatorString = '';
 		foreach($parameterList as $param)
 		{
 			//
@@ -235,8 +236,10 @@ SQL;
 				case 'string': $indicator = 's'; break;
 				default: die('Cannot handle type: ' . $type); break;
 			}
-			$stmt->bind_param($indicator, $param);
+			$indicatorString .= $indicator;
+			// $stmt->bind_param($indicator, $param);
 		}
+		$stmt->bind_param($indicatorString, ...$parameterList);
 		// var_dump($stmt);echo '<br><br>';
 		// var_dump($this->conn); die();
 		$this->HandleSTMTErrors($stmt, $function);
