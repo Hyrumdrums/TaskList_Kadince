@@ -240,7 +240,7 @@ SQL;
 			// $stmt->bind_param($indicator, $param);
 		}
 		echo $indicatorString . '--';
-		$stmt->bind_param($indicatorString, ...$parameterList);
+		if(count($parameterList)) $stmt->bind_param($indicatorString, ...$parameterList);
 		// var_dump($stmt);echo '<br><br>';
 		// var_dump($this->conn); die();
 		$this->HandleSTMTErrors($stmt, $function);
