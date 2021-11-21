@@ -215,6 +215,8 @@ SQL;
 		$this->BeVerbose($sql, $function, $parameterList);
 		$stmt = $this->conn;
 		$stmt = $this->conn->prepare($sql);
+		echo $sql;
+		$this->HandleSTMTErrors($stmt, $function);
 		//var_dump($this->conn);die();
 		foreach($parameterList as $param)
 		{
