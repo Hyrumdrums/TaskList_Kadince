@@ -213,7 +213,6 @@ SQL;
 		// return stmt - mysql mod less adept
 		//
 		$this->BeVerbose($sql, $function, $parameterList);
-		$stmt = $this->conn;
 		$stmt = $this->conn->prepare($sql);
 		echo $sql;
 		$this->HandleSTMTErrors($stmt, $function);
