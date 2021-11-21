@@ -232,12 +232,11 @@ SQL;
 			}
 			$stmt->bind_param($indicator, $param);
 		}
-		var_dump($stmt);echo '<br><br>';
-		var_dump($this->conn); die();
-		$this->HandleSQLErrors($this->conn, $function);
+		// var_dump($stmt);echo '<br><br>';
+		// var_dump($this->conn); die();
+		$this->HandleSTMTErrors($this->conn, $function);
 		$this->BeVerbose($sql,$function, $parameterList);
 		$stmt->execute();
-		$this->HandleSQLErrors($stmt, $function);
 		return $stmt;
 	}
 	protected function GetObjectList($stmt)
@@ -604,6 +603,17 @@ SQL;
 		
 	}
 	private function HandleSQLErrors($stmt, $method)
+	{
+		//
+		//If executed sql statement had errors, output and kill code execution
+		//
+		if ($stmt === false) 
+		{
+			echo mysqli_stmt_error($stmt);
+			throw new \ErrorException("$method MYSQL Error:");
+		}
+	}
+	private function HandleSTMTErrors($stmt, $method)
 	{
 		//
 		//If executed sql statement had errors, output and kill code execution
