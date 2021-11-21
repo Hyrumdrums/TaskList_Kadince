@@ -200,7 +200,7 @@ HTML;
 		$orderBy = $this->BuildOrderBy();
 		$sql = <<<SQL
 SELECT {$limit} *
-FROM [{$this->tableName}]
+FROM `{$this->tableName}`
 $conditionColumnString
 $orderBy
 SQL;
