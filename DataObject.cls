@@ -603,17 +603,17 @@ SQL;
 		}
 		
 	}
-	private function HandleSQLErrors($stmt, $method)
-	{
-		//
-		//If executed sql statement had errors, output and kill code execution
-		//
-		if ($stmt === false) 
-		{
-			echo mysqli_stmt_error($stmt);
-			throw new \ErrorException("$method MYSQL Error:");
-		}
-	}
+	// private function HandleConnErrors($conn, $method)
+	// {
+		// //
+		// //If executed sql statement had errors, output and kill code execution
+		// //
+		// if ($stmt === false) 
+		// {
+			// echo mysqli_stmt_error($stmt);
+			// throw new \ErrorException("$method MYSQL Error:");
+		// }
+	// }
 	private function HandleSTMTErrors($stmt, $method)
 	{
 		//
@@ -621,7 +621,7 @@ SQL;
 		//
 		if ($stmt === false) 
 		{
-			echo mysqli_stmt_error($stmt);
+			// echo mysqli_stmt_error($stmt);
 			throw new \ErrorException("$method MYSQL Error:");
 		}
 	}
