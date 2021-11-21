@@ -2,6 +2,7 @@
 require('DataObject.cls');
 $user = new DataObject('User', 'User_Id');
 $list = $user->Select();
+$user = $list[0];
 echo 'Loaded ' . $user->Get('Name') . ', his pwd is ' . $user->Get('Password');
 echo '<br>';
 echo '<br>';

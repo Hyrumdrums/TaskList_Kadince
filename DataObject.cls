@@ -110,8 +110,8 @@ SQL;
 		// If column value has been set with 'Set' method, use that value,
 		//  else, use db value
 		//
-		var_dump($this->columnList);
-		die();
+		// var_dump($this->columnList);
+		// die();
 		$returnValue = $this->columnList[$columnName];
 		if(array_key_exists($columnName, $this->modifiedColumnList))
 		{
@@ -591,8 +591,8 @@ SQL;
 		$this->Clear();
 		$this->stmt = $stmt;
 		$this->primaryColumn = $primaryColumn;
-		var_dump($list);
-		die();
+		// var_dump($list);
+		// die();
 		$this->columnList = $list;
 		$this->isNewItem = false;
 	}
