@@ -1,19 +1,26 @@
 <?php
 require('DataObject.cls');
+// select
 // $user = new DataObject('User', 'User_Id');
 // $list = $user->Select();
 // $user = $list[0];
 // echo 'Loaded ' . $user->Get('Name') . ', his pwd is ' . $user->Get('Password');
+// insert
 // $user = new DataObject('User', 'User_Id');
 // $user->Set('Name', 'Carol');
 // $user->Set('Password', 'newPassword');
 // $user->MakeVerbose();
 // $user->Save();
+//load
+// $user = new DataObject('User', 'User_Id');
+// $user->Set('User_Id', 7);
+// $user->Load();
+// $user->MakeVerbose();
+// $user->Dump();
 $user = new DataObject('User', 'User_Id');
 $user->Set('User_Id', 7);
 $user->Load();
-$user->MakeVerbose();
-$user->Dump();
+$user->Delete();
 
 
 
