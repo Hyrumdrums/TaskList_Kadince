@@ -9,6 +9,7 @@ echo '<br>';
 $user = new DataObject('User', 'User_Id');
 $user->Set('Name', 'Carol');
 $user->Set('Password', 'newPassword');
+$user->MakeVerbose();
 $user->Save();
 
 
