@@ -35,6 +35,11 @@ function EditTask(id)
 	let params = {'Task_Id':id};
 	Route('EditTask', params);
 }
+function Delete(id)
+{
+	alert(id);
+	return true;
+}
 function Logout()
 {
 	Route('Logout');
