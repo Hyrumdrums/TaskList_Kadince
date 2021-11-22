@@ -10,7 +10,7 @@ form.login, div.error
 {
 	text-align: center;
 }
-form.login input[type="submit"]
+form.login input
 {
 	margin: 10px;
 }

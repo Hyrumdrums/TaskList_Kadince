@@ -12,7 +12,7 @@
 		}
 		private static function GetCredentialFile()
 		{
-			$fileName = "creds.json";
+			$fileName = "../creds.json";
 			return $fileName;
 		}
 		private static function OpenConnection()
