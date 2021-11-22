@@ -24,7 +24,12 @@ store db creds with an ecryption service
 optomize for mobile
 
 Testers Feedback
-Wife: 			 Filters look off center on IOS mobile.
+Wife: 	         Filters look off center on IOS mobile.
 Kristy Story: 	 It's very plain.
 Danielle Layton: Show Filters are confusing at first glance. Makes sense after a second.
+Cami Sheridan:   The green check mark confused me. 
+                 I would leave that white if I were you. 
+                 And provide a legend of what the colors mean.
+  
+It looks very neat but can you add pictures? Most websites nowadays seem to be decorated
 2 tester had no feedback
