@@ -12,16 +12,12 @@
 			//
 			$user = self::GetUser($username);
 			if(is_null($user)) return false;
-			echo 'testing';
-			if($user->Get('password') == $password)
+			if($user->Get('Password') == $password)
 			{
-				echo 'passed!';
 				$id = $user->Get('id');
 				$_SESSION[self::User_IdKey] = $id;
 				return true;
 			}
-			echo 'failed..';
-			die();
 			return false;
 		}
 		public static function Logout()
