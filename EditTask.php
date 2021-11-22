@@ -52,21 +52,21 @@
 							echo <<<HTML
 								<tr>
 									<td><input type="radio" 
-												name="status" 
+												name="Status" 
 												value="New" $checkNoStatus></input>
 									</td>
 									<td>New</td>
 								</tr>
 								<tr>
 									<td><input type="radio" 
-												name="status" 
+												name="Status" 
 												value="Pending" $checkPending></input>
 									</td>
 									<td>Pending</td>
 								</tr>
 								<tr>
 									<td><input type="radio" 
-												name="status" 
+												name="Status" 
 												value="Complete" $checkComplete></input>
 									</td>
 									<td>Complete</td>
