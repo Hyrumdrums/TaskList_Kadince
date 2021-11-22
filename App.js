@@ -42,6 +42,12 @@ function Delete(id)
 	let params = {'Task_Id':id};
 	Route('DeleteTask', params);
 }
+function Complete(id)
+{
+	event.stopImmediatePropagation(); // prevent edit task
+	let params = {'Task_Id':id};
+	Route('CompleteTask', params);
+}
 function Logout()
 {
 	Route('Logout');

@@ -49,7 +49,12 @@ ul.TaskList li, div.Filters
 	/* Round corners */
 	border-radius: 6px;
 }
-ul.TaskList li button
+ul.TaskList li button:first-child
+{
+	position: absolute;
+	left: 5px;
+}
+ul.TaskList li button:last-child
 {
 	position: absolute;
 	right: 5px;

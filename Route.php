@@ -13,7 +13,10 @@
 		case 'DeleteTask':
 			$task_Id = GetPost('Task_Id');
 			header("Location: UpdateTask.php?Action=Delete&Task_Id=$task_Id");
-			// Route::To('index', '', array('msg'=>'Task Deleted'));
+			break;
+		case 'CompleteTask':
+			$task_Id = GetPost('Task_Id');
+			header("Location: UpdateTask.php?Action=Complete&Task_Id=$task_Id");
 			break;
 		case 'Logout':
 			User::Logout();

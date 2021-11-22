@@ -7,7 +7,7 @@
 	$user_Id = User::GetUser_Id();
 	$button = GetPost('submit');
 	//
-	// piggy back for quick delete function, expect action and task_Id from url
+	// piggy back for quick functions, expect action and task_Id from url
 	//
 	if(!$button)
 	{
@@ -27,6 +27,7 @@
 		$task->Load();
 		if($task->Get('User_Id') != $user_Id) die('Something went wrong');
 	}
+	$desc = $task->Get('Description');
 	switch($button)
 	{
 		case 'Save':
@@ -46,9 +47,13 @@
 			$task->Save();
 			break;
 		case 'Delete':
-			$desc = $task->Get('Description');
 			$task->Delete();
 			$msg = "Deleted '$desc'";
+			break;
+		case 'Complete':
+			$desc = $task->Set('Status', 'Complete');
+			$task->Save();
+			$msg = "Competed '$desc'";
 			break;
 		case 'Cancel': // not used becaue of window.history.back(); on cancel button
 			break;
