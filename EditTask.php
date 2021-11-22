@@ -2,16 +2,13 @@
 	//
 	// Load or create new task for edit
 	//
-	// $task_Id = Parameters::Get('Task_Id');
-	// $task = new DataObject('Task', 'Task_Id');
-	// if($task_Id)
-	// {
-		// $task->Set('Task_Id', $task_Id);
-		// $task->Load();
-	// }
-	$task_Id = 1;
-	$list = GetFakeTaskList();
-	$task = $list[0];
+	$task_Id = Parameters::Get('Task_Id');
+	$task = new DataObject('Task', 'Task_Id');
+	if($task_Id)
+	{
+		$task->Set('Task_Id', $task_Id);
+		$task->Load();
+	}
 	$desc = $task->Get('Description');
 	$notes = $task->Get('Notes');
 	//
