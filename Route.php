@@ -10,6 +10,11 @@
 			$task_Id = GetPost('Task_Id');
 			Route::To('index', $action, array('Task_Id'=>$task_Id));
 			break;
+		case 'DeleteTask':
+			$task_Id = GetPost('Task_Id');
+			header("Location: UpdateTask.php?Action=Delete&Task_Id=$task_Id");
+			// Route::To('index', '', array('msg'=>'Task Deleted'));
+			break;
 		case 'Logout':
 			User::Logout();
 			Route::To('index');

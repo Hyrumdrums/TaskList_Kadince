@@ -37,8 +37,10 @@ function EditTask(id)
 }
 function Delete(id)
 {
-	alert(id);
 	event.stopImmediatePropagation(); // prevent edit task
+	if(!ConfirmDelete(id)) return;
+	let params = {'Task_Id':id};
+	Route('DeleteTask', params);
 }
 function Logout()
 {
