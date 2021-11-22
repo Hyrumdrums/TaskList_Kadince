@@ -56,6 +56,7 @@ ul.TaskList li button:first-child
 }
 ul.TaskList li button:last-child
 {
+	background-color: #9fff82;
 	position: absolute;
 	right: 5px;
 }
