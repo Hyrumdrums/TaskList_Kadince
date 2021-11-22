@@ -1,5 +1,5 @@
 <?php
-require_once('Database.php');
+require_once('Database.cls');
 class DataObject
 {
 	//
@@ -110,6 +110,8 @@ SQL;
 		// If column value has been set with 'Set' method, use that value,
 		//  else, use db value
 		//
+		// var_dump($this->columnList);
+		// die();
 		$returnValue = $this->columnList[$columnName];
 		if(array_key_exists($columnName, $this->modifiedColumnList))
 		{
@@ -199,10 +201,11 @@ HTML;
 		$limit = $this->BuildLimit();
 		$orderBy = $this->BuildOrderBy();
 		$sql = <<<SQL
-SELECT {$limit} *
-FROM [{$this->tableName}]
+SELECT *
+FROM `{$this->tableName}`
 $conditionColumnString
 $orderBy
+$limit
 SQL;
 		$this->stmt = $this->ExecuteSQL($sql, __FUNCTION__, $parameterList);
 		return $this->GetObjectList($this->stmt);
@@ -212,9 +215,13 @@ SQL;
 		//
 		// return stmt - mysql mod less adept
 		//
-		$this->BeVerbose($sql, $function, $parameterList);
-		$p1 = $parameterList[0];
 		$stmt = $this->conn->prepare($sql);
+		// var_dump($this->conn); die();
+		// echo $sql;
+		// var_dump($parameterList);
+		$this->HandleSTMTErrors($stmt, $function);
+		//var_dump($this->conn);die();
+		$indicatorString = '';
 		foreach($parameterList as $param)
 		{
 			//
@@ -229,16 +236,24 @@ SQL;
 				case 'string': $indicator = 's'; break;
 				default: die('Cannot handle type: ' . $type); break;
 			}
+			$indicatorString .= $indicator;
+			// $stmt->bind_param($indicator, $param);
 		}
+		// echo $indicatorString . '--';
+		if(count($parameterList)) $stmt->bind_param($indicatorString, ...$parameterList);
+		// var_dump($stmt);echo '<br><br>';
+		// var_dump($this->conn); die();
+		$this->HandleSTMTErrors($stmt, $function);
 		$this->BeVerbose($sql,$function, $parameterList);
 		$stmt->execute();
-		$this->HandleSQLErrors($stmt, $function);
+		
 		return $stmt;
 	}
 	protected function GetObjectList($stmt)
 	{
 		$list = array();
-		while($row = $stmt->fetch_row())
+		$result = $stmt->get_result();
+		while($row = $result->fetch_assoc())
 		{
 			$object = $this->InstantiateNewSelf();
 			$object->LoadRecord($row, $this->primaryColumn, $stmt);
@@ -277,30 +292,6 @@ SQL;
 								. $this->tableName . '>' 
 								. $functionName . '(): No record loaded');
 	}
-	// public function GetFields()
-	// {
-		// //
-		// // Return fields Object
-		// //	Property names match each field
-		// //  Example: 
-		// //		$list = $vendorContact->Select();
-		// //		$vendorContactMetaData = $vendorContact->GetFields();
-		// //		$vendorContactMetaData->FieldName->DataType
-		// //
-		// $this->HandleSQLErrors($this->stmt, __FUNCTION__);	//Verify statment was executed
-		// $fields = new \stdclass();
-		// foreach( sqlsrv_field_metadata( $this->stmt ) as $fieldMetadata ) 
-        // {
-			// $column = new \stdclass();
-			// foreach($fieldMetadata as $key => $value)
-			// {
-				// $column->$key = $value;
-			// }
-			// $fieldName = $column->Name;
-			// $fields->$fieldName = $column;
-		// }
-		// return $fields;
-	// } 
 	public function Limit($int)
 	{
 		if(!is_int($int)) die('Invalid limit specified');
@@ -514,10 +505,10 @@ SQL;
 			$placeholderList[] = '?';
 		}
 		$placeholderString = implode(',', $placeholderList);
-		$columnNameString = implode('],[', $columnNameList);
+		$columnNameString = implode('`,`', $columnNameList);
 		$sql = <<<SQL
 			INSERT INTO {$this->tableName}
-			([$columnNameString])
+			(`$columnNameString`)
 			VALUES
 			($placeholderString)
 SQL;
@@ -547,7 +538,8 @@ SQL;
 	{
 		$sql = 'SELECT LAST_INSERT_ID() as Id;';
 		$stmt = $this->ExecuteSQL($sql, __FUNCTION__, array());
-		if($row = $result->fetch_row())
+		$result = $stmt->get_result();
+		if($row = $result->fetch_assoc())
 		{
 			return $row['Id'];
 		}
@@ -557,7 +549,7 @@ SQL;
 	{
 		if($this->selectLimit)
 		{
-			return 'TOP ' . $this->selectLimit;
+			return 'LIMIT 0, ' . $this->selectLimit;
 		}
 		return '';
 	}
@@ -581,6 +573,8 @@ SQL;
 		$this->Clear();
 		$this->stmt = $stmt;
 		$this->primaryColumn = $primaryColumn;
+		// var_dump($list);
+		// die();
 		$this->columnList = $list;
 		$this->isNewItem = false;
 	}
@@ -598,14 +592,25 @@ SQL;
 		}
 		
 	}
-	private function HandleSQLErrors($sqlResult, $method)
+	// private function HandleConnErrors($conn, $method)
+	// {
+		// //
+		// //If executed sql statement had errors, output and kill code execution
+		// //
+		// if ($stmt === false) 
+		// {
+			// echo mysqli_stmt_error($stmt);
+			// throw new \ErrorException("$method MYSQL Error:");
+		// }
+	// }
+	private function HandleSTMTErrors($stmt, $method)
 	{
 		//
 		//If executed sql statement had errors, output and kill code execution
 		//
-		if ($sqlResult === false) 
+		if ($stmt === false) 
 		{
-			var_dump(mysqli_error($conn));
+			// echo mysqli_stmt_error($stmt);
 			throw new \ErrorException("$method MYSQL Error:");
 		}
 	}
