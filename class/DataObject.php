@@ -211,7 +211,7 @@ SQL;
 		$this->stmt = $this->ExecuteSQL($sql, __FUNCTION__, $parameterList);
 		return $this->GetObjectList($this->stmt);
 	}
-	protected function ExecuteSQL($sql, $function, $parameterList)
+	protected function ExecuteSQL($sql, $function, $parameterList = null)
 	{
 		//
 		// return stmt - mysql mod less adept
@@ -223,6 +223,7 @@ SQL;
 		$this->HandleSTMTErrors($stmt, $function);
 		//var_dump($this->conn);die();
 		$indicatorString = '';
+		if(is_null($parameterList)) $parameterList = array();
 		foreach($parameterList as $param)
 		{
 			//

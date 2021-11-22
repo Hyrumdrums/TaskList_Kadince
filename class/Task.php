@@ -21,7 +21,7 @@ class Task extends DataObject
 			FROM Task
 			$where
 MYSQL;
-		$this->stmt = $this->ExecuteSQL($sql, __FUNCTION__);
+		$this->stmt = $this->ExecuteSQL($sql, __FUNCTION__, null);
 		return $this->GetObjectList($this->stmt);
 	}
 }
