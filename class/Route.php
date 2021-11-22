@@ -1,12 +1,12 @@
 <?php
 	class Route
 	{
-		public static function To($file, $action, $paramList =  null)
+		public static function To($file, $action = '', $paramList =  null)
 		{
 			//
 			// set parameters and go to index with action param set
 			//
-			Parameters::Set('Action', $action);
+			if($action) Parameters::Set('Action', $action);
 			if(!is_null($paramList))
 			{
 				foreach($paramList as $name => $value)
