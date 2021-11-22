@@ -50,7 +50,7 @@ ul.TaskList li, div.Filters
 }
 ul.TaskList li button
 {
-	position: relative;
+	position: absolute;
 	right: 5px;
 }
 /*
