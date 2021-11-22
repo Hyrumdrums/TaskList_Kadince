@@ -85,7 +85,7 @@ HTML;
 			value="Delete"></input>
 	<button type="button" 
 			value="Cancel"
-			onclick="window.history.back();"></button>
+			onclick="window.history.back();">Cancel</button>
 	<input type="submit" 
 			name="submit"
 			value="Save"></input>

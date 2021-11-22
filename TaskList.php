@@ -43,9 +43,16 @@ HTML;
 	<table>
 		<tr>
 			<td>Show:</td>
-			<td><input type="checkbox" name="Filters[]" value="Pending" <?php echo $pendingChecked;?>>pending</input></td>
-			<td><input type="checkbox" name="Filters[]" value="Complete"<?php echo $completeChecked;?>>complete</input></td>
-			<td><input type="submit" value="Go"></input></td>
+			<td><input type="checkbox" 
+						name="Filters[]" 
+						value="Pending" 
+						onchange="this.form.submit();"
+						<?php echo $pendingChecked;?>>pending</input></td>
+			<td><input type="checkbox" 
+						name="Filters[]" 
+						value="Complete"
+						onchange="this.form.submit();"
+						<?php echo $completeChecked;?>>complete</input></td>
 		</tr>
 	</table>
 	</form>
