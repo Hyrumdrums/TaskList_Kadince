@@ -51,7 +51,7 @@
 			$msg = "Deleted '$desc'";
 			break;
 		case 'Complete':
-			$desc = $task->Set('Status', 'Complete');
+			$task->Set('Status', 'Complete');
 			$task->Save();
 			$msg = "Competed '$desc'";
 			break;
