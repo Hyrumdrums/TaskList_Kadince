@@ -14,7 +14,7 @@
 			if(is_null($user)) return false;
 			if($user->Get('Password') == $password)
 			{
-				$id = $user->Get('id');
+				$id = $user->Get('User_Id');
 				$_SESSION[self::User_IdKey] = $id;
 				return true;
 			}
