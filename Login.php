@@ -3,6 +3,10 @@
 	// If login err, show message
 	//
 	$err = Parameters::Pull('Err', '');
+	//
+	// Set default tasklist filter
+	//
+	Parameters::Set('ShowPending', true);
 ?>
 <h1>Login to Task List</h1>
 <div class="error"><?php echo $err;?></div>
