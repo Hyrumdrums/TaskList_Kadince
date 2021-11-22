@@ -6,7 +6,7 @@
 	$file = 'error';
 	$title = '';
 	// die(Parameters::Get('Action'));
-	// $action = Parameters::Pull('Action');
+	$action = Parameters::Pull('Action');
 	if($action == 'NewUser')
 	{
 		$file = 'NewUser.php';
