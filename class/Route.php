@@ -7,7 +7,6 @@
 			// set parameters and go to index with action param set
 			//
 			if($action) Parameters::Set('Action', $action);
-			// die('Set action' . $action);
 			if(!is_null($paramList))
 			{
 				foreach($paramList as $name => $value)

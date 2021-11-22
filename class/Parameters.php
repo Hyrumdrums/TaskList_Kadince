@@ -10,7 +10,6 @@
 			// Return session var
 			//
 			$value = $default;
-			// var_dump($_SESSION);
 			if(isset($_SESSION[$name]))
 			{
 				$value = $_SESSION[$name];

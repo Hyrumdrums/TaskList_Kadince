@@ -1,6 +1,8 @@
 <?php
 	//
-	// Save task
+	// Save, Delete, Complete task
+	//
+	// here from form action or as header with url vars
 	//
 	require('Autoloader.php');
 	$task_Id = GetPost('Task_Id');

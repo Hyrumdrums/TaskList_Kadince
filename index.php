@@ -1,12 +1,13 @@
 <?php
 	//
 	// Assert login and route
+	// Routes include:
+	// NewUser, Login, TaskList, EditTask
 	//
 	require('Autoloader.php');
 	if(Get('clear')) USER::Logout();
 	$file = 'error';
 	$title = '';
-	// die(Parameters::Get('Action'));
 	$action = Parameters::Pull('Action');
 	if($action == 'NewUser')
 	{

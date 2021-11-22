@@ -8,11 +8,10 @@
 	$user_Id = User::GetUser_Id();
 	$task = new Task();
 	$taskList = $task->SelectByFilters($user_Id, $filterList);
-	// $taskList = $task->Select();
-	
-
-	// $taskList = GetFakeTaskList();
 	$msg = Parameters::Pull('msg');
+	//
+	// Build task line items
+	//
 	$items = '';
 	foreach($taskList as $task)
 	{
