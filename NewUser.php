@@ -16,8 +16,8 @@
 	var password2;
 	window.addEventListener('load', function()
 	{
-		password = document.getElementById("password")
-		password2 = document.getElementById("password2");
+		password = document.getElementsByName("password")[0];
+		password2 = document.getElementsByName("password2")[0];
 		password.onchange = validatePassword;
 		password2.onkeyup = validatePassword;
 	});
