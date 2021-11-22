@@ -6,7 +6,7 @@ body
 	
 	font-family: "Montserrat"
 }
-form.login, div.error
+form.login, div.error, form.newUser
 {
 	text-align: center;
 }

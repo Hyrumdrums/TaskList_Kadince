@@ -20,6 +20,23 @@
 			}
 			return false;
 		}
+		public static function Create($username, $password)
+		{
+			//
+			// create user if not taken
+			// return t|f on success
+			//
+			$user = new DataObject('User','User_Id');
+			$user->Set('Name', $username);
+			$user->Find();
+			if($user->IsFound()) return false;
+			$user->Set('Name', $username);
+			$user->Set('Password', $password);
+			$user->Save();
+			if($user->IsNewItem()) return false; // failed
+			self::Login($username, $password);
+			return true;
+		}
 		public static function Logout()
 		{
 			session_destroy();

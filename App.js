@@ -53,3 +53,12 @@ function NewTask()
 {
 	EditTask(0);
 }
+
+
+function validatePassword(){
+  if(password.value != password2.value) {
+    password2.setCustomValidity("Passwords Don't Match");
+  } else {
+    password2.setCustomValidity('');
+  }
+}
