@@ -42,6 +42,8 @@
 			$task->Delete();
 			$msg = "Deleted '$desc'";
 			break;
+		case 'Cancel':
+			break;
 	}
 	
 	Route::To('index', 'TaskList', array('msg'=>$msg));

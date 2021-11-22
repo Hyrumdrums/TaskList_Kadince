@@ -78,11 +78,14 @@ HTML;
 			</td>
 		</tr>
 	</table>
-				<input type="submit" 
-						name="submit"
-						onclick="return ConfirmDelete(<?php echo $task_Id;?>);" 
-						value="Delete"></input>
-				<input type="submit" 
-						name="submit"
-						value="Save"></input>
+	<input type="submit" 
+			name="submit"
+			onclick="return ConfirmDelete(<?php echo $task_Id;?>);" 
+			value="Delete"></input>
+	<input type="submit" 
+			name="submit"
+			value="Cancel"></input>
+	<input type="submit" 
+			name="submit"
+			value="Save"></input>
 </form>
