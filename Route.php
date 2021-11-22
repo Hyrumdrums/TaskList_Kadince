@@ -15,7 +15,6 @@
 			Route::To('index');
 			break;
 		case 'NewUser':
-			User::Logout();
 			Route::To('index', 'NewUser');
 			break;
 		default:
