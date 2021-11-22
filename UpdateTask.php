@@ -31,7 +31,7 @@
 			if(!in_array($status, array('','Pending','Complete'))) die('Invalid Status');
 			$notes = GetPost('Notes');
 			
-			$task->Set('Task_Id', $task_Id);
+			if($task->IsNewItem()) $task->Set('Task_Id', $task_Id);
 			$task->Set('User_Id', $user_Id);
 			$task->Set('Description', $desc);
 			$task->Set('Status', $status);

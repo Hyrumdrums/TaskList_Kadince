@@ -37,6 +37,7 @@
 		<tr>
 			<td>
 				<textarea placeholder="Notes"
+						  name="Notes"
 						  rows="3"
 						  cols="30"
 						  onfocus="this.select();"><?php echo $notes;?></textarea>
