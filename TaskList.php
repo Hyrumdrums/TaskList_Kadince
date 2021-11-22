@@ -1,10 +1,10 @@
 <?php
-	// $task = new DataObject('Task', 'Task_Id');
-	// $task->User_Id = User::get_Id();
-	// $taskList = $task->Select();
+	$task = new DataObject('Task', 'Task_Id');
+	$task->User_Id = User::get_Id();
+	$taskList = $task->Select();
 	
 
-	$taskList = GetFakeTaskList();
+	// $taskList = GetFakeTaskList();
 	$msg = Parameters::Pull('msg');
 	$items = '';
 	foreach($taskList as $task)
