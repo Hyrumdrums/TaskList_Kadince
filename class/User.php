@@ -10,6 +10,7 @@
 			//
 			// lookup user by username, compare passwords, save uid in session if successful
 			//
+			$username = strtolower($username);
 			$user = self::GetUser($username);
 			if(is_null($user)) return false;
 			if($user->Get('Password') == $password)
@@ -26,6 +27,7 @@
 			// create user if not taken
 			// return t|f on success
 			//
+			$username = strtolower($username);
 			$user = new DataObject('User','User_Id');
 			$user->Set('Name', $username);
 			$user->Find();
@@ -46,6 +48,7 @@
 			//
 			// Find user record by name and return
 			//
+			$username = strtolower($username);
 			$user = new DataObject('User','User_Id');
 			$user->Set('Name', $username);
 			$user->Find();
