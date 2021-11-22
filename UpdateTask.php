@@ -28,7 +28,7 @@
 			$desc = GetPost('Description');
 			if(!$desc) die('Please enter a description');
 			$status = GetPost('Status');
-			if(!in_array($status, array('','Pending','Complete'))) die('Invalid Status');
+			if(!in_array($status, array('New','Pending','Complete'))) die('Invalid Status');
 			$notes = GetPost('Notes');
 			
 			if($task->IsNewItem()) $task->Set('Task_Id', $task_Id);
