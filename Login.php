@@ -23,4 +23,4 @@
 			placeholder="password"></input><br>
 	<input type="submit"></input>
 </form>
-<input type="button" onclick="Route('NewUser');">I'm new here</input>
+<input type="button" onclick="Route('NewUser');" value="I'm new here"></input>
