@@ -1,6 +1,6 @@
 <?php
 	$task = new DataObject('Task', 'Task_Id');
-	$task->User_Id = User::get_Id();
+	$task->User_Id = User::GetUser_Id();
 	$taskList = $task->Select();
 	
 
