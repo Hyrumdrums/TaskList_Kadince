@@ -64,6 +64,7 @@ div.Filters input[type="checkbox"]
 input[type="submit"]
 ,input[type="button"]
 ,button.Logout
+,button
 {
 	text-decoration: none;
 	cursor: pointer;
