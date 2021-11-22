@@ -5,7 +5,8 @@
 	require('Autoloader.php');
 	$file = 'error';
 	$title = '';
-	$action = Parameters::Pull('Action');
+	die(Parameters::Get('Action'));
+	// $action = Parameters::Pull('Action');
 	if($action == 'NewUser')
 	{
 		$file = 'NewUser.php';
