@@ -48,6 +48,11 @@ ul.TaskList li, div.Filters
 	/* Round corners */
 	border-radius: 6px;
 }
+ul.TaskList li button
+{
+	position: relative;
+	right: 5px;
+}
 /*
 Tasklist Filters
 */
