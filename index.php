@@ -1,73 +1,44 @@
 <?php
-require('DataObject.cls');
-// select
-// $user = new DataObject('User', 'User_Id');
-// $list = $user->Select();
-// $user = $list[0];
-// echo 'Loaded ' . $user->Get('Name') . ', his pwd is ' . $user->Get('Password');
-// insert
-// $user = new DataObject('User', 'User_Id');
-// $user->Set('Name', 'Carol');
-// $user->Set('Password', 'newPassword');
-// $user->MakeVerbose();
-// $user->Save();
-//load
-$user = new DataObject('User', 'User_Id');
-$user->Set('User_Id', 1);
-$list = $user->Select();
-echo DataObject::ListToJSON($list);
-//delete
-// $user = new DataObject('User', 'User_Id');
-// $user->Set('User_Id', 7);
-// $user->Load();
-// $user->Delete();
-
-
-
-
-
-
-
-
-
-
-
-
-exit();
-//phpinfo();
-//die();
-$servername = "localhost";
-$username = "app";
-$password = "supersecretpassword";
-$dbname = "Task";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// test connection
-//$result = 
-
-
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "SELECT * FROM User";
-$result = $conn->query($sql);
-
-if ($result === false) {
-	var_dump(mysqli_error($conn));
-	die('err');
-}
- 
-   while($row = $result->fetch_assoc()) {
-	  
-    echo "username is: " . $row["Name"];
-}
-//} else {
-//  echo "0 results";
-//}
-$conn->close();
+	//
+	// Login then load app
+	//
+	require('Autoloader.php');
+	$file = 'error';
+	$title = '';
+	if(!User::IsLoggedIn())
+	{
+		$file = 'Login.php';
+		$title = 'Login';
+	}
+	else
+	{
+		$action = Parameters::Pull('Action');
+		switch($action)
+		{
+			case 'EditTask': $file = 'EditTask.php'; break;
+			//
+			// Default
+			//
+			case 'TaskList':
+			default:         $file = 'TaskList.php'; break;
+		}
+	}
 ?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task List</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+	<script src="App.js"></script>
+<?php 
+	// echo LoadComponents();
+	require($file);
+?>
+  </body>
+</html>
