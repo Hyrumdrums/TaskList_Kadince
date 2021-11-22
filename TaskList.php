@@ -21,7 +21,7 @@
 		$onclick = "EditTask($id);";
 		$class = $task->Get('Status');
 		$items .= <<<HTML
-			<li class="$class" onclick="$onclick">$desc</li>
+			<li class="$class" onclick="$onclick">$desc<button onclick="alert('got it');">x</button></li>
 HTML;
 	}
 	$taskList = <<<HTML
