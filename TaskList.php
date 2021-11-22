@@ -1,7 +1,14 @@
 <?php
-	$task = new DataObject('Task', 'Task_Id');
-	$task->User_Id = User::GetUser_Id();
-	$taskList = $task->Select();
+	//
+	// select tasks based on filters and user, list
+	//
+	$filterList = array();
+	if(Parameters::Get('ShowPending')) $filterList[] = 'Pending';
+	if(Parameters::Get('ShowComplete')) $filterList[] = 'Complete';
+	$user_Id = User::GetUser_Id();
+	$task = new Task();
+	$taskList = $task->SelectByFilters($user_Id, $filterList);
+	// $taskList = $task->Select();
 	
 
 	// $taskList = GetFakeTaskList();
