@@ -79,10 +79,19 @@ HTML;
 			</td>
 		</tr>
 	</table>
+	<?php
+		if($task_Id)
+		{
+			//
+			// Only show delete button on existing tasks
+			//
+			echo <<<HTML
 	<input type="submit" 
 			name="submit"
-			onclick="return ConfirmDelete(<?php echo $task_Id;?>);" 
+			onclick="return ConfirmDelete($task_Id);" 
 			value="Delete"></input>
+HTML;
+		}
 	<button type="button" 
 			value="Cancel"
 			onclick="window.history.back();">Cancel</button>
