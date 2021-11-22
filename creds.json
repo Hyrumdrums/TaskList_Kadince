@@ -1,6 +1,0 @@
-{
-	"host": "localhost",
-	"db": "Task",
-	"user": "app",
-	"password": "supersecretpassword"
-}
