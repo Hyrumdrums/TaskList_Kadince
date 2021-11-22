@@ -12,6 +12,10 @@ form.login, div.error
 }
 form.login input
 {
+	margin: 5px;
+}
+form.login input[type="submit"]
+{
 	margin: 10px;
 }
 h1
