@@ -38,7 +38,7 @@ function EditTask(id)
 function Delete(id)
 {
 	alert(id);
-	event.stopPropagation; // prevent edit task
+	event.stopImmediatePropagation(); // prevent edit task
 }
 function Logout()
 {
