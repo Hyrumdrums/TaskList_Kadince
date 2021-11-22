@@ -83,9 +83,9 @@ HTML;
 			name="submit"
 			onclick="return ConfirmDelete(<?php echo $task_Id;?>);" 
 			value="Delete"></input>
-	<input type="submit" 
-			name="submit"
-			value="Cancel"></input>
+	<button type="button" 
+			value="Cancel"
+			onclick="window.history.back();"></input>
 	<input type="submit" 
 			name="submit"
 			value="Save"></input>

@@ -42,7 +42,7 @@
 			$task->Delete();
 			$msg = "Deleted '$desc'";
 			break;
-		case 'Cancel':
+		case 'Cancel': // not used becaue of window.history.back(); on cancel button
 			break;
 	}
 	
