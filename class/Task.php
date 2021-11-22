@@ -15,6 +15,7 @@ class Task extends DataObject
 		if(!in_array('Pending',$filterList)) $conditionList[] = "Status <> 'Pending'";
 		if(!in_array('Complete',$filterList)) $conditionList[] = "Status <> 'Complete'";
 		$conditions = implode(' AND ', $conditionList);
+		$where = '';
 		if($conditions) $where = "WHERE $conditions";
 		$sql = <<<MYSQL
 			SELECT *
