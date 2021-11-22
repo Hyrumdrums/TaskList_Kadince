@@ -9,7 +9,7 @@
 	//
 	// piggy back for quick delete function, expect action and task_Id from url
 	//
-	if(!button)
+	if(!$button)
 	{
 		$button = Get('Action');
 		$task_Id = Get('Task_Id');
