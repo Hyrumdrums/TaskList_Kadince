@@ -53,21 +53,21 @@
 								<tr>
 									<td><input type="radio" 
 												name="status" 
-												value="" $checkNoStatus></input>
+												value="New" $checkNoStatus></input>
 									</td>
 									<td>New</td>
 								</tr>
 								<tr>
 									<td><input type="radio" 
 												name="status" 
-												value="" $checkPending></input>
+												value="Pending" $checkPending></input>
 									</td>
 									<td>Pending</td>
 								</tr>
 								<tr>
 									<td><input type="radio" 
 												name="status" 
-												value="" $checkComplete></input>
+												value="Complete" $checkComplete></input>
 									</td>
 									<td>Complete</td>
 								</tr>
