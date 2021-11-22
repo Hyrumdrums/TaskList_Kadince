@@ -3,6 +3,13 @@
 	{
 		return (isset($_POST[$name]) ? $_POST[$name] : $default);
 	}
+	function Get($name, $default)
+	{
+		return (isset($_GET[$name]) ? $_GET[$name] : $default);
+	}
+	//
+	// Pre database testing tools
+	//
 	function fake($taskList)
 	{
 		foreach($taskList as &$task)

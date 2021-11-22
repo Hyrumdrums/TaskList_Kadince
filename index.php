@@ -3,6 +3,7 @@
 	// Assert login and route
 	//
 	require('Autoloader.php');
+	if(Get('clear')) USER::Logout();
 	$file = 'error';
 	$title = '';
 	// die(Parameters::Get('Action'));
