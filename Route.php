@@ -14,6 +14,10 @@
 			User::Logout();
 			Route::To('index');
 			break;
+		case 'NewUser':
+			User::Logout();
+			Route::To('index', 'NewUser');
+			break;
 		default:
 			die('unknown action specified: ' . $action);
 			break;

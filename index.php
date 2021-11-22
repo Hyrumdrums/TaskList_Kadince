@@ -5,14 +5,17 @@
 	require('Autoloader.php');
 	$file = 'error';
 	$title = '';
-	if(!User::IsLoggedIn())
+	$action = Parameters::Pull('Action');
+	if($action == 'NewUser')
+	{
+		$file = 'NewUser.php';
+	}
+	elseif(!User::IsLoggedIn())
 	{
 		$file = 'Login.php';
-		$title = 'Login';
 	}
 	else
 	{
-		$action = Parameters::Pull('Action');
 		switch($action)
 		{
 			case 'EditTask': $file = 'EditTask.php'; break;

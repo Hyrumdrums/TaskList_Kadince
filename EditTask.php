@@ -31,7 +31,8 @@
 						placeholder="Description"
 						autofocus
 						onfocus="this.select();"
-						autocomplete="off"></input>
+						autocomplete="off"
+						required></input>
 			</td>
 		</tr>
 		<tr>
