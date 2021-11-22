@@ -29,7 +29,7 @@
 			//
 			// Find user record by name and return
 			//
-			$user = DataObject('User','User_Id');
+			$user = new DataObject('User','User_Id');
 			$user->Set('Name', $username);
 			$user->Find();
 			if($user->IsFound()) return $user;
