@@ -12,9 +12,9 @@
 			//
 			$user = self::GetUser($username);
 			if(is_null($user)) return false;
-			if($user['password'] == $password)
+			if($user->Get('password') == $password)
 			{
-				$id = $user['id'];
+				$id = $user->Get('id');
 				$_SESSION[self::User_IdKey] = $id;
 				return true;
 			}
