@@ -92,6 +92,7 @@ HTML;
 			value="Delete"></input>
 HTML;
 		}
+	?>
 	<button type="button" 
 			value="Cancel"
 			onclick="window.history.back();">Cancel</button>
