@@ -1,6 +1,9 @@
 <?php
 	class Database
 	{
+		//
+		// Simple db class used by ORM data object
+		//
 		public static function Connect()
 		{
 			static $conn = null;
@@ -12,6 +15,9 @@
 		}
 		private static function GetCredentialFile()
 		{
+			//
+			// creds are not encryped
+			//
 			$fileName = "../creds.json";
 			return $fileName;
 		}

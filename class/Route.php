@@ -4,7 +4,7 @@
 		public static function To($file, $action, $paramList =  null)
 		{
 			//
-			// set parameters and go to file
+			// set parameters and go to index with action param set
 			//
 			Parameters::Set('Action', $action);
 			if(!is_null($paramList))
@@ -18,7 +18,7 @@
 			$prot = explode('/', $prot)[0]; 		// HTTP/1.1 to HTTP(s)
 			$prot = strtolower($prot);
 			$host = $_SERVER['HTTP_HOST'];
-			$url = "$prot://$host/React2";
+			$url = "$prot://$host/";
 			switch($file)
 			{
 				case 'index':

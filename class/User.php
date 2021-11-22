@@ -1,9 +1,15 @@
 <?php
 	class User
 	{
+		//
+		// User class to handle all login and current user info
+		//
 		const User_IdKey = 'TaskList_User_Id';
 		public static function Login($username, $password)
 		{
+			//
+			// lookup user by username, compare passwords, save uid in session if successful
+			//
 			$user = self::GetUser($username);
 			if(is_null($user)) return false;
 			if($user['password'] == $password)
@@ -21,19 +27,13 @@
 		public static function GetUser($username)
 		{
 			//
-			// Harcode Login
+			// Find user record by name and return
 			//
-			$userList = array(
-							'scott.jackson'=>array('id'=>1, 'password'=>'MANTABLa')
-						   ,'eve.joehansen'=>array('id'=>2, 'password'=>'FLOGRowb')
-						   ,'dallin.layton'=>array('id'=>3, 'password'=>'password')
-			);	
-			$user = null;
-			if(array_key_exists($username, $userList))
-			{
-				$user = $userList[$username];
-			}
-			return $user;
+			$user = DataObject('User','User_Id');
+			$user->Set('Name', $username);
+			$user->Find();
+			if($user->IsFound()) return $user;
+			return null;
 		}
 		public static function IsLoggedIn()
 		{

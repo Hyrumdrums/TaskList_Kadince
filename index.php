@@ -1,6 +1,6 @@
 <?php
 	//
-	// Login then load app
+	// Assert login and route
 	//
 	require('Autoloader.php');
 	$file = 'error';
@@ -17,7 +17,7 @@
 		{
 			case 'EditTask': $file = 'EditTask.php'; break;
 			//
-			// Default
+			// Default show task list
 			//
 			case 'TaskList':
 			default:         $file = 'TaskList.php'; break;
@@ -37,7 +37,6 @@
   <body>
 	<script src="App.js"></script>
 <?php 
-	// echo LoadComponents();
 	require($file);
 ?>
   </body>
