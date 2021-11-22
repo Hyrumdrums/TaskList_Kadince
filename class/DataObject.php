@@ -5,7 +5,7 @@ class DataObject
 	//
 	// An instantiation of a data object is a new item until LoadRecord is called.
 	//  This design requires that a respective table has a primary key column.
-	// 	This is verified in __construct
+	// 	This is verified in __construct - or was until I modified for MySQL '11-21-2021'
 	//
 	private $dbName;
 	private $conn;
@@ -112,6 +112,7 @@ SQL;
 		//
 		// var_dump($this->columnList);
 		// die();
+		if(!array_key_exists($columnName, $this->columnList)) return ''; // quick fix for Kadince project
 		$returnValue = $this->columnList[$columnName];
 		if(array_key_exists($columnName, $this->modifiedColumnList))
 		{
