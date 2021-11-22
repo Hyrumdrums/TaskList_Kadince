@@ -30,6 +30,5 @@ Danielle Layton: Show Filters are confusing at first glance. Makes sense after a
 Cami Sheridan:   The green check mark confused me. 
                  I would leave that white if I were you. 
                  And provide a legend of what the colors mean.
-  
-It looks very neat but can you add pictures? Most websites nowadays seem to be decorated
+                 It looks very neat but can you add pictures? Most websites nowadays seem to be decorated
 2 tester had no feedback
