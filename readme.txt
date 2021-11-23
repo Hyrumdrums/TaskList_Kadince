@@ -22,6 +22,7 @@ consider css root vars for color schemes
 Add Password requirements and encrypt/hash
 store db creds with an ecryption service
 optomize for mobile
+Cursor:pointer on filter checkboxes
 
 Testers Feedback
 Wife: 	         Filters look off center on IOS mobile.
