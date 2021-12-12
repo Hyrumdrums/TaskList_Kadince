@@ -1,10 +1,9 @@
 <?php
 	//
-	// autoload classes
+	// autoload classes, require functions.php
 	//
 	session_start();
 	require_once('Functions.php');
-	// require('LoadComponents.php');
 	function AutoLoader($QualifiedClassName)
 	{
 		$file = str_replace('\\', '/', $QualifiedClassName);

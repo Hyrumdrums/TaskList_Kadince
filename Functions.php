@@ -8,7 +8,7 @@
 		return (isset($_GET[$name]) ? $_GET[$name] : $default);
 	}
 	//
-	// Pre database testing tools
+	// Pre-'database connection' testing tools
 	//
 	function fake($taskList)
 	{
