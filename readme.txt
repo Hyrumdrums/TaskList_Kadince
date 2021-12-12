@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-
-Task->Status should be normalized
-
-Cancel should confirm if dirty form
-
-possible session contamination
-
-delete task button piggy backs on updatetask.php. a dedicated action page would be better.
-
-consider css root vars for color schemes
-=======
 Stack Details
 OS Ubuntu 20.04.2 LTS (GNU/Linux 5.4.0-90-generic x86_64)
 Apache/2.4.41 (Ubuntu)
@@ -45,4 +33,3 @@ Cami Sheridan:   The green check mark confused me.
                  And provide a legend of what the colors mean.
                  It looks very neat but can you add pictures? Most websites nowadays seem to be decorated
 2 tester had no feedback
->>>>>>> 33c25a94261c69f3dcb16fcd0ada8736dbf0346a

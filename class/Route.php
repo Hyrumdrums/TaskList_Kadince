@@ -7,10 +7,6 @@
 			// set parameters and go to index with action param set
 			//
 			if($action) Parameters::Set('Action', $action);
-<<<<<<< HEAD
-			// die('Set action' . $action);
-=======
->>>>>>> 33c25a94261c69f3dcb16fcd0ada8736dbf0346a
 			if(!is_null($paramList))
 			{
 				foreach($paramList as $name => $value)
